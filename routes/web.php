@@ -12,7 +12,7 @@
 */
 
 Route::get('/api/posts',function (){
-    $posts = \App\Post::all();
+    $posts = \App\Post::with(['user','category'])->get();
     return response($posts->toJson(),200);
 });
 
